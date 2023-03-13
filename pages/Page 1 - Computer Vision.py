@@ -2,9 +2,9 @@ import streamlit as st
 import sys
 sys.path.append("/Users/siddharthmandgi/Desktop/Data-Science-Universe/Projects/Deployed_models/")
 from projects import Chest_X_Ray_Pneumonia_deployed as chst, Chocolate_Classification_deployed as choc
-
+import tensorflow as tf
 from streamlit_lottie import st_lottie
-from utils import load_lottieurl
+from utils import load_lottieurl, models_dir, images_dir
 
 with st.sidebar:
     l_nlp = ["Image Classification"]

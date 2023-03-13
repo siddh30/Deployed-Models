@@ -1,4 +1,4 @@
-from utils import load_lottieurl,images_dir,models_dir
+from utils import load_lottieurl, model_sentence_transformer, classifier
 
 import streamlit as st
 from streamlit_lottie import st_lottie
@@ -12,9 +12,8 @@ def twitter_run():
     st.text("")
     text = st.text_area("Tweet Something!")
 
-    model = SentenceTransformer('paraphrase-mpnet-base-v2')
-    classifier = XGBClassifier()
-    classifier.load_model(models_dir+"/twitter_sentiment_xgb_model.json")
+    model = model_sentence_transformer
+    
 
 
     if text:

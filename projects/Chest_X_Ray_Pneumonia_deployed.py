@@ -1,5 +1,5 @@
 
-from utils import load_lottieurl, images_dir, models_dir
+from utils import load_lottieurl, images_dir, model_chest
 
 import streamlit as st
 from streamlit_lottie import st_lottie
@@ -44,7 +44,7 @@ def chest_xray_run():
     k = st.file_uploader("Upload a Chest X-ray Image", type='jpg')
 
     if k:
-        img = st.image(k, width=150)
+        st.image(k, width=150)
         image = Image.open(k).convert('RGB')
 
     if image:
@@ -52,7 +52,9 @@ def chest_xray_run():
         image = tf.keras.utils.img_to_array(image)
         image = image.reshape((1, image.shape[0], image.shape[1], image.shape[2]))
         # make the prediction
-        model = tf.keras.models.load_model(models_dir+'/chest_xray_saved_models/bestmodel_0')
+
+        
+        model = model_chest
         output = model.predict(image)
 
         if output<0.5:

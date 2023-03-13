@@ -1,11 +1,10 @@
-from utils import load_lottieurl, images_dir, models_dir
+from utils import load_lottieurl, images_dir, model_choc
 
 import streamlit as st
 from streamlit_lottie import st_lottie
 
 import numpy as np
 import tensorflow as tf 
-
 import matplotlib.pyplot as plt
 from PIL import Image
 
@@ -51,7 +50,7 @@ def choc_run():
         image = tf.keras.utils.img_to_array(image)
         image = image.reshape((1, image.shape[0], image.shape[1], image.shape[2]))
         # make the prediction
-        model = tf.keras.models.load_model(models_dir+'/Chocolate_saved_models/bestmodel')
+        model = model_choc
         output = model.predict(image)
 
         if output<0.5:
