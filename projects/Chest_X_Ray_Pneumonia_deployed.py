@@ -26,7 +26,7 @@ def chest_xray_run():
         y = st.button("Use me", key="Pnuemonia")
 
     with col2:
-        j = Image.open(images_dir+"/clear.jpg").convert('RGB')
+        j = Image.open(images_dir+"/Clear.jpg").convert('RGB')
         st.image(j, width=100,caption='No Pnuemonia Example')
         n = st.button("Use me", key="No Pnuemonia")
 
