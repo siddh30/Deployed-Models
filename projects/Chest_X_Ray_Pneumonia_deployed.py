@@ -12,7 +12,7 @@ from PIL import Image
 
 def chest_xray_run():
     st.title("Chest X-Ray Pneuomonia Detection")
-    st.text("To detect signs of Pneuomonia by looking at a subject's Chest X-Ray")
+    st.success("To detect signs of Pneuomonia by looking at a subject's Chest X-Ray!")
     st.text("")
 
     st.subheader("Use these examples...")

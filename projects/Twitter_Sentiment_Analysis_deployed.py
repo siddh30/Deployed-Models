@@ -8,7 +8,7 @@ from xgboost import XGBClassifier
 
 def twitter_run():
     st.title("Twitter Sentiment Analysis")
-
+    st.success("To get the sentiment of a tweet!")
     st.text("")
     text = st.text_area("Tweet Something!")
 

@@ -10,7 +10,7 @@ from PIL import Image
 
 def choc_run():
     st.title("Chocolate Classification")
-    st.text("To classify between dark and white chocolate")
+    st.success("To classify between dark and white chocolate!")
     st.text("")
 
     st.subheader("Use these examples...")
