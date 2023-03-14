@@ -19,13 +19,13 @@ def choc_run():
     col1,col2 = st.columns(2)
 
     with col1:
-        i = Image.open(images_dir+"/Dark_choc.png").convert('RGB')
-        st.image(i, width=100,caption='Dark Choclate Example')
+        i = Image.open(images_dir+"/Dark_choc.png").convert('RGB').resize((120, 150))
+        st.image(i, width = 100, caption='Dark Choclate Example')
         y = st.button("Use me", key="Dark Chocolate")
 
     with col2:
-        j = Image.open(images_dir+"/White_choc.png").convert('RGB')
-        st.image(j, width=100,caption='White Chocolate Example')
+        j = Image.open(images_dir+"/White_choc.png").convert('RGB').convert('RGB').resize((120, 150))
+        st.image(j, width = 100, caption='White Chocolate Example')
         n = st.button("Use me", key="White Chocolate")
 
 
@@ -39,7 +39,7 @@ def choc_run():
     st.text("")
     st.subheader("Or upload an Image...")
 
-    k = st.file_uploader("Upload an image of a chocolate", type='jpg')
+    k = st.file_uploader("Upload an image of a chocolate", type=['jpg','jpeg','png'])
 
     if k:
         img = st.image(k, width=150)

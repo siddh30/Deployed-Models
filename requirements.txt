@@ -4,3 +4,5 @@ streamlit-lottie==0.0.3
 tensorflow==2.9.0
 tensorboard==2.9.0
 matplotlib==3.7.1
+dlib==19.24.0
+opencv-python==4.7.0.72

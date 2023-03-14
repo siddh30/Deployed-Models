@@ -21,12 +21,12 @@ def chest_xray_run():
     col1,col2 = st.columns(2)
 
     with col1:
-        i = Image.open(images_dir+"/Pneumonia.jpg").convert('RGB')
+        i = Image.open(images_dir+"/Pneumonia.jpg").convert('RGB').resize((120, 150))
         st.image(i, width=100,caption='Pnuemonia Example')
         y = st.button("Use me", key="Pnuemonia")
 
     with col2:
-        j = Image.open(images_dir+"/Clear.jpg").convert('RGB')
+        j = Image.open(images_dir+"/Clear.jpg").convert('RGB').resize((120, 150))
         st.image(j, width=100,caption='No Pnuemonia Example')
         n = st.button("Use me", key="No Pnuemonia")
 
@@ -41,7 +41,7 @@ def chest_xray_run():
     st.text("")
     st.subheader("Or upload an Image...")
 
-    k = st.file_uploader("Upload a Chest X-ray Image", type='jpg')
+    k = st.file_uploader("Upload a Chest X-ray Image", type=['jpg','jpeg','png'])
 
     if k:
         st.image(k, width=150)
