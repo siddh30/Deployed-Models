@@ -69,3 +69,6 @@ def glasses_run():
                     height=250,
                     width=250, 
                             )
+            
+        if output:
+            st.error("No Face Detected! Try another image!")
