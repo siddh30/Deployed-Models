@@ -45,6 +45,7 @@ def glasses_run():
 
     if k:
         st.image(k, width=150)
+        image = Image.open(k).convert('RGB')
     
 
     if image:
