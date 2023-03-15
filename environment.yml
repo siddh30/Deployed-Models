@@ -3,11 +3,10 @@ channels:
   - conda-forge
 dependencies:
 - dlib==19.24.0
-  - pip:
-  - sentence-transformers==2.2.2
-  - xgboost==1.7.4
-  - streamlit-lottie==0.0.3
-  - tensorflow==2.9.0
-  - tensorboard==2.9.0
-  - matplotlib==3.7.1
-  - opencv-python==4.7.0.72
+- sentence-transformers==2.2.2
+- xgboost==1.7.4
+- streamlit-lottie==0.0.3
+- tensorflow==2.9.0
+- tensorboard==2.9.0
+- matplotlib==3.7.1
+- opencv-python==4.7.0.72
