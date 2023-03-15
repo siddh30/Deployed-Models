@@ -39,14 +39,14 @@ def keypoints_run():
         faces_crop = face_detection.detection()
         face_detection.number_faces()
 
-        st.success("Step 2: Facial Keypoints on Cropped Images")
+        st.warning("Step 2: Facial Keypoints on Cropped Images")
         faces_oneChannel_96(faces_crop,model=keypoints_torch_model)
 
         st.success("Scan Complete!")
 
 
     else:
-        st.warning("Upload to begin scanning")
+        st.warning("Begin scanning - Upload an image or Use the above example ")
         i1 = load_lottieurl("https://assets4.lottiefiles.com/temp/lf20_XcJCfR.json")
         st_lottie(i1, 
                 speed=1.25,

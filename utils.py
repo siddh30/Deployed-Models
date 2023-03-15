@@ -60,7 +60,6 @@ haarcascade_model, dlib_detector, dlib_predictor = extra_detectors(haarcascade_d
 
 
 ### 3. Glasses model
-@st.cache_resource
 def glasses_detector_model(image, detector, predictor):
     img = np.array(image)
     if len(detector(img))==0:
@@ -102,7 +101,7 @@ def glasses_detector_model(image, detector, predictor):
 
 
 ### 4. Face Detection and landmarks model 
-@st.cache_resource
+
 class FaceDetection():
     
     def __init__(self, img, path2class = 'models/haarcascade_frontalface_default.xml'):
@@ -150,7 +149,6 @@ class FaceDetection():
         
 
 
-@st.cache_resource
 class CNN(nn.Module):
     def __init__(self):
         super(CNN, self).__init__()
@@ -230,7 +228,6 @@ keypoints_torch_model = CNN()
 keypoints_torch_model.load_state_dict(torch.load(models_dir+'/Facial_KeyPoints_Model', map_location=torch.device('cpu')))
 
 
-@st.cache_resource
 def faces_oneChannel_96(faces_crop, model):
   count=1
   fig = plt.figure(figsize=(10,20))
