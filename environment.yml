@@ -1,5 +1,0 @@
-name: streamlit-app-env
-channels:
-  - conda-forge
-dependencies:
-- dlib==19.24.0
