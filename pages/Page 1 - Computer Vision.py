@@ -36,4 +36,4 @@ if  project_cv == l_cv[2]:
         keypoints.keypoints_run()
 
 
-st.sidebar.image("https://www.pngkit.com/png/full/88-880499_platform-02-computer-vision-icon.png", width=300)
+st.sidebar.image("./images/cv.png", width=300)
