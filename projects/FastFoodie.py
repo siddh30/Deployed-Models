@@ -43,7 +43,7 @@ def fastfoodie_run():
             ### Resturn the Top 10 most similar restaurants
             recommended = list(dataframe['Name'].iloc[restaurant_indices])
 
-            title = st.selectbox('Restaurants most simlar', recommended)
+            title = st.selectbox('Restaurants most similar', recommended)
             if title in dataframe['Name'].values:
                 Reviews = (dataframe.at[dataframe['Name'].eq(title).idxmax(), 'Reviews'])
                 st.markdown("### Restaurant Rating:-")
