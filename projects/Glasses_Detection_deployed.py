@@ -13,7 +13,7 @@ def glasses_run():
     selected = option_menu(
         menu_title="Choose an image source",
         menu_icon='camera',
-        options=['Use Given Examples', 'Upload an Image'],
+        options=['View Examples', 'Upload an Image'],
         orientation='horizontal')
 
     if selected == 'Upload an Image':
@@ -28,7 +28,7 @@ def glasses_run():
 
     else:
         st.text("")
-        st.subheader(" Use given examples")
+        st.subheader("View Examples")
         with st.expander("Dropdown to use some example images"):
             col1,col2 = st.columns(2)
 

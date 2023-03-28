@@ -14,7 +14,7 @@ def chest_xray_run():
     selected = option_menu(
         menu_title="Choose an image source",
         menu_icon='camera',
-        options=['Use Given Examples', 'Upload an Image'],
+        options=['View Examples', 'Upload an Image'],
         orientation='horizontal')
 
     if selected == 'Upload an Image':
@@ -27,7 +27,7 @@ def chest_xray_run():
             image = Image.open(k).convert('RGB')
 
     else:
-        st.subheader("Use given examples")
+        st.subheader("View Examples")
         with st.expander("Dropdown to use some example images"):
             st.subheader("Use these examples...")
 
