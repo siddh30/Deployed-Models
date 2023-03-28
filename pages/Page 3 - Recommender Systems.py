@@ -20,13 +20,13 @@ if nlp == l_nlp[0]:
         st.title('FastFoodie - A Resturant Recommendation App')
         st.success("Applying Collaborative Filtering to get the most similar restaurants from TripAdvisor.")
        
-        url = "https://siddh30-fastfoodie-a-restaurant-recommendation--homepage-tde7ec.streamlit.app/"
-        if st.button("Link to Standalone App!", use_container_width=True):
-                #js = "window.open" + "('" + url + "')"  # New tab
-                js = "window.location.href" + " = " + "'" + url + "'"  # Current tab
-                html = '<img src onerror="{}">'.format(js)
-                div = Div(text=html)
-                st.bokeh_chart(div)
+        # url = "https://siddh30-fastfoodie-a-restaurant-recommendation--homepage-tde7ec.streamlit.app/"
+        # if st.button("Link to Standalone App!", use_container_width=True):
+        #         #js = "window.open" + "('" + url + "')"  # New tab
+        #         js = "window.location.href" + " = " + "'" + url + "'"  # Current tab
+        #         html = '<img src onerror="{}">'.format(js)
+        #         div = Div(text=html)
+        #         st.bokeh_chart(div)
 
 
         fastfoodie_run()
