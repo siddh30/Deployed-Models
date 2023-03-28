@@ -34,7 +34,7 @@ def glasses_run():
 
             with col1:
                 i = Image.open(images_dir+"/Rihanna.jpeg").convert('RGB')
-                i1 = i.resize((600, 650))
+                i1 = i.resize((700, 750))
                 st.image(i1, caption='Glasses Example')
                 y = st.button("Use me", key="Glasses", use_container_width=True)
 
