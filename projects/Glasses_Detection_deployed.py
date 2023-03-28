@@ -1,54 +1,60 @@
 from utils import load_lottieurl, images_dir, dlib_detector, dlib_predictor, glasses_detector_model
 import streamlit as st
 from streamlit_lottie import st_lottie
-import numpy as np
-import tensorflow as tf 
-import matplotlib.pyplot as plt
-import dlib
-import cv2
+from streamlit_option_menu import option_menu
 from PIL import Image
 
 def glasses_run():
     st.title("Glasses Detection")
     st.success("To detect if the subject is wearing glasses without using Neural Networks!")
-    st.text("")
-
-    st.subheader("Use these examples...")
 
     image = None
-    col1,col2 = st.columns(2)
 
-    with col1:
-        i = Image.open(images_dir+"/Rihanna.jpeg").convert('RGB')
-        i1 = i.resize((120, 150))
-        st.image(i1, caption='Glasses Example')
-        y = st.button("Use me", key="Glasses")
+    selected = option_menu(
+        menu_title="Choose an image source",
+        menu_icon='camera',
+        options=['Use Given Examples', 'Upload an Image'],
+        orientation='horizontal')
 
-    with col2:
-        j = Image.open(images_dir+"/Tom_cruise.jpeg").convert('RGB')
-        j1 = j.resize((120, 150))
-        st.image(j1, caption='No Glasses Example')
-        n = st.button("Use me", key="No Glasses")
+    if selected == 'Upload an Image':
+        st.text("")
+        st.subheader("Upload an image")
+        k = st.file_uploader("Upload a subject's facial Image", type=['jpg','jpeg','png'])
+
+        if k:
+            st.image(k, width=150)
+            image = Image.open(k).convert('RGB')
+     
+
+    else:
+        st.text("")
+        st.subheader(" Use given examples")
+        with st.expander("Dropdown to use some example images"):
+            col1,col2 = st.columns(2)
+
+            with col1:
+                i = Image.open(images_dir+"/Rihanna.jpeg").convert('RGB')
+                i1 = i.resize((600, 650))
+                st.image(i1, caption='Glasses Example')
+                y = st.button("Use me", key="Glasses", use_container_width=True)
+
+            with col2:
+                j = Image.open(images_dir+"/Tom_cruise.jpeg").convert('RGB')
+                j1 = j.resize((700, 750))
+                st.image(j1, caption='No Glasses Example')
+                n = st.button("Use me", key="No Glasses",use_container_width=True)
 
 
-    if y:
-        image = i
+        if y:
+            image = i
 
-    elif n:
-        image = j
+        elif n:
+            image = j
         
 
-    st.text("")
-    st.subheader("Or upload an Image...")
-
-    k = st.file_uploader("Upload a subject's facial Image", type=['jpg','jpeg','png'])
-
-    if k:
-        st.image(k, width=150)
-        image = Image.open(k).convert('RGB')
-    
-
     if image:
+        if selected!='Upload an Image':
+            st.image(image.resize((150, 200)))
         ### make the prediction
         output = glasses_detector_model(image, detector=dlib_detector, predictor=dlib_predictor)
         
@@ -70,5 +76,5 @@ def glasses_run():
                     width=250, 
                             )
             
-        if output:
-            st.error("No Face Detected! Try another image!")
+        if output == 'No face detected':
+            st.error("No Face Detected! Try another image with a persons face!")

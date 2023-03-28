@@ -2,10 +2,8 @@ from utils import load_lottieurl, images_dir, model_choc
 
 import streamlit as st
 from streamlit_lottie import st_lottie
-
-import numpy as np
+from streamlit_option_menu import option_menu
 import tensorflow as tf 
-import matplotlib.pyplot as plt
 from PIL import Image
 
 def choc_run():
@@ -16,34 +14,46 @@ def choc_run():
     st.subheader("Use these examples...")
 
     image = None
-    col1,col2 = st.columns(2)
+    
+    selected = option_menu(
+        menu_title="Choose an image source",
+        menu_icon='camera',
+        options=['Use Given Examples', 'Upload an Image'],
+        orientation='horizontal')
 
-    with col1:
-        i = Image.open(images_dir+"/Dark_choc.png").convert('RGB').resize((120, 150))
-        st.image(i, width = 100, caption='Dark Choclate Example')
-        y = st.button("Use me", key="Dark Chocolate")
+    if selected == 'Upload an Image':
+        st.text("")
+        st.subheader("Upload an image")
 
-    with col2:
-        j = Image.open(images_dir+"/White_choc.png").convert('RGB').convert('RGB').resize((120, 150))
-        st.image(j, width = 100, caption='White Chocolate Example')
-        n = st.button("Use me", key="White Chocolate")
+        k = st.file_uploader("Upload an image of a chocolate", type=['jpg','jpeg','png'])
+
+        if k:
+            st.image(k, width=150)
+            image = Image.open(k).convert('RGB')
 
 
-    if y:
-        image = i
+    else:
+        st.subheader("Use given examples")
+        with st.expander("Dropdown to use some example images"):
+            col1,col2 = st.columns(2)
 
-    elif n:
-        image = j
-        
+            with col1:
+                i = Image.open(images_dir+"/Dark_choc.png").convert('RGB').resize((700, 750))
+                st.image(i, caption='Dark Choclate Example')
+                y = st.button("Use me", key="Dark Chocolate", use_container_width=True)
 
-    st.text("")
-    st.subheader("Or upload an Image...")
+            with col2:
+                j = Image.open(images_dir+"/White_choc.png").convert('RGB').convert('RGB').resize((700, 750))
+                st.image(j, caption='White Chocolate Example')
+                n = st.button("Use me", key="White Chocolate", use_container_width=True)
 
-    k = st.file_uploader("Upload an image of a chocolate", type=['jpg','jpeg','png'])
 
-    if k:
-        img = st.image(k, width=150)
-        image = Image.open(k).convert('RGB')
+            if y:
+                image = i
+
+            elif n:
+                image = j
+            
 
     if image:
         image = image.resize((64, 64))
