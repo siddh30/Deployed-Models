@@ -4,7 +4,10 @@ sys.path.append("/Users/siddharthmandgi/Desktop/Data-Science-Universe/Projects/D
 from projects import Chest_X_Ray_Pneumonia_deployed as chst, Chocolate_Classification_deployed as choc, Glasses_Detection_deployed as glass, Facial_Keypoints_deployed as keypoints
 import tensorflow as tf
 from streamlit_lottie import st_lottie
-from utils import load_lottieurl, models_dir, images_dir
+from utils import blueprints_func
+from blueprints.computer_vision_blueprints import pnuemonia_blueprint, chocolate_blueprint, glasses_blueprints, keypoints_blueprints
+
+###### PAGE FOR ALL COMPUTER VISION PROJECTS
 
 l_cv = ["Statistical Image Classification", "Neural Image Classification", "Image Attribute Generation"]
 project_cv = st.sidebar.selectbox("Choose Project Type", l_cv)
@@ -14,18 +17,24 @@ if  project_cv == l_cv[0]:
     project = st.sidebar.radio("Choose a Project", options=l_projects)
     
     if project == l_projects[0]:
-        glass.glasses_run()
+        st.sidebar.image("./images/cv.png", width=300)
+        blueprints_func(glasses_blueprints,  glass.glasses_run)
 
 
 if  project_cv == l_cv[1]:
     l_projects = ["Chest X-ray Pnuemonia Detection", 'Chocolate Classification']
     project = st.sidebar.radio("Choose a Project", options=l_projects)
     
+    
     if project == l_projects[0]:
-        chst.chest_xray_run()
+        st.sidebar.image("./images/cv.png", width=300)
+        blueprints_func(pnuemonia_blueprint, chst.chest_xray_run)
+
 
     if project == l_projects[1]:
-        choc.choc_run()
+        st.sidebar.image("./images/cv.png", width=300)
+        blueprints_func(chocolate_blueprint, choc.choc_run)
+        
 
 
 if  project_cv == l_cv[2]:
@@ -33,7 +42,7 @@ if  project_cv == l_cv[2]:
     project = st.sidebar.radio("Choose a Project", options=l_projects)
     
     if project == l_projects[0]:
-        keypoints.keypoints_run()
+        st.sidebar.image("./images/cv.png", width=300)
+        blueprints_func(keypoints_blueprints, keypoints.keypoints_run)
 
 
-st.sidebar.image("./images/cv.png", width=300)

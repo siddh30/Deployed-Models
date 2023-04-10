@@ -19,6 +19,9 @@ import torch.optim as optim
 import torch.utils.data as data_utils
 from PIL import Image
 
+
+##### ADDING MODEL IMPORTS, AND HELPER FUNCTIONS
+
 ### load lottie images
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -29,7 +32,6 @@ def load_lottieurl(url: str):
 
 images_dir = os.getcwd() + '/images'
 models_dir = os.getcwd() + '/models'
-
 
 
 #### COMPUTER VISION
@@ -277,9 +279,12 @@ def load_nlp_model(path_model, path_xgboost_head):
 model_sentence_transformer, classifier = load_nlp_model(path_model='paraphrase-mpnet-base-v2', path_xgboost_head=models_dir+"/twitter_sentiment_xgb_model.json")
 
 
-
-
-
-
-
-
+### Project Blue Prints
+def blueprints_func(function, run_function, no_space=True):
+    if no_space==True:
+        st.sidebar.text("")
+    if st.sidebar.button("Project Blueprints", use_container_width=True):
+        function()
+        st.button("Click here to go back to Project Main Page", use_container_width=True)
+    else:
+        run_function()

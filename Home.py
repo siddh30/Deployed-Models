@@ -18,8 +18,7 @@ st_lottie(i1,
 
 st.success("Click on the arrow icon on the top left to navigate to different projects...")
 
-st.sidebar.success(" I am always building new projects so look out more for on the way!")
 
-with st.sidebar.expander("Upcoming Updates!"):
-    st.warning("1. Adding Surrogate Image Classification Models to avoid users from misclassifying on incorrect image uploads.")
-    st.warning("2. Adding Blueprints Page for each project explaining model flows.")
+# with st.sidebar.expander("Upcoming Updates!"):
+#     st.warning("1. Adding Surrogate Image Classification Models to avoid users from misclassifying on incorrect image uploads.")
+#     st.warning("2. Adding Blueprints Page for each project explaining model flows.")
