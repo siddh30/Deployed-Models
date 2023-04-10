@@ -9,7 +9,7 @@ def glasses_blueprints():
     st.success("This flowchart illustrates the pipeline for Glasses Detection.")
     st.image("images/glasses_detection.png")
     with st.expander("Explaination"):
-        st.markdown('''In this flow chart all images for Glasses Detection is sources from an Image Database
+        st.markdown('''In this flowchart all images for Glasses Detection is sources from an Image Database
                         and passed through a DLIB Face Detector. The purpose of this is to ensure we avoid misclassifications
                         of arbitary image uploads when passed through Canny Filters.''')
 
@@ -34,7 +34,7 @@ def Neural_Image():
     st.success("This flowchart illustrates the pipeline for projects under Neural Image Classification.")
     st.image("images/Neural_Image.png")
     with st.expander("Explaination"):
-        st.markdown('''In this flow chart all images for Neural Image Classifictaion is sourced from an Image Database
+        st.markdown('''In this flowchart all images for Neural Image Classifictaion is sourced from an Image Database
                         and passed through a Multiclass Image classifier. The purpose of this is to ensure we avoid misclassifications
                         of arbitary image uploads by secondary classifiers.''')
 
