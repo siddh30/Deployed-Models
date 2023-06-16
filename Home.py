@@ -19,6 +19,10 @@ st_lottie(i1,
 st.success("Click on the arrow icon on the top left to navigate to different projects...")
 
 
-# with st.sidebar.expander("Upcoming Updates!"):
-#     st.warning("1. Adding Surrogate Image Classification Models to avoid users from misclassifying on incorrect image uploads.")
-#     st.warning("2. Adding Blueprints Page for each project explaining model flows.")
+with st.sidebar:
+    st.markdown(f"""
+               Winner - #Streamlit25k Challenge \n""")
+    st.image("images/winner.png")
+    st.markdown(f"""
+               Link to Post - https://www.linkedin.com/feed/update/urn:li:activity:7075587186087059456/
+               """)
