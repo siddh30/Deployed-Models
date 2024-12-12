@@ -9,4 +9,4 @@ cmake==3.25.2
 opencv-python-headless
 dlib-bin
 bokeh==2.4.3
-protobuf==3.20.0
+protobuf==3.20.3
