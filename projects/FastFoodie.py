@@ -51,17 +51,17 @@ def fastfoodie_run():
                 #REVIEWS
                 if Reviews == '4.5 of 5 bubbles':
                     image = Image.open('Data/Ratings/Img4.5.jpg')
-                    st.image(image, use_column_width=True)
+                    st.image(image, use_container_width=True)
 
 
                 elif Reviews == '4 of 5 bubbles':
                     image = Image.open('Data/Ratings/Img4.0.jpg')
-                    st.image(image, use_column_width=True)
+                    st.image(image, use_container_width=True)
 
 
                 elif Reviews == '5 of 5 bubbles':
                     image = Image.open('Data/Ratings/Img5.0.png')
-                    st.image(image, use_column_width=True)
+                    st.image(image, use_container_width=True)
 
                 else:
                     pass
@@ -110,8 +110,8 @@ def fastfoodie_run():
 
             st.text("")
             image = Image.open('images/happy_eating.jpg')
-            st.image(image, use_column_width=True)
+            st.image(image, use_container_width=True)
 
     image = Image.open('images/top_10.jpg')
-    st.image(image, use_column_width=True)
+    st.image(image, use_container_width=True)
     recom(df,name)
